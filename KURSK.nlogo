@@ -20,10 +20,13 @@ turtles-own [
 globals [ initGermans initRussians x y GermanRetreat? GermanCapture?]
 
 to setup
-  clear-all
+  ;; (for this model to work with NetLogo's new plotting features,
+  ;; __clear-all-and-reset-ticks should be replaced with clear-all at
+  ;; the beginning of your setup procedure and reset-ticks at the end
+  ;; of the procedure.)
+  __clear-all-and-reset-ticks
   set GermanRetreat? false;
   set GermanCapture? false;
-  import-drawing "map3.jpg"
   createSoviets
   createGermans
   set initGermans (sum [amount] of turtles with [soviet? = false])
@@ -104,23 +107,6 @@ to createGermans
     set oDefense amount * defense
     set soviet? false]
   
-  if deathstar? [
-  ;Hitler's Deathstar
-   set-default-shape deathstars "deathstar"
-  create-deathstars 1  [ 
-    setxy -16 -1
-    facexy 11 0
-    set amount 1
-    set color grey
-    set speed .17
-    set range 200
-    set power 2500
-    set defense 60000
-    set oDefense 60000
-    set accuracy 1024
-    set size 4
-    set soviet? false]
-  ]
     set-default-shape tanks "tank"
   
   ;German 1st Panzerkorps
@@ -313,12 +299,13 @@ GRAPHICS-WINDOW
 1
 1
 ticks
+30.0
 
 PLOT
-759
-503
-1086
-782
+752
+437
+1079
+716
 Forces
 Time
 Forces
@@ -328,9 +315,10 @@ Forces
 10.0
 true
 false
+"" ""
 PENS
-"German" 1.0 0 -16777216 true
-"Soviet" 1.0 0 -2674135 true
+"German" 1.0 0 -16777216 true "" ""
+"Soviet" 1.0 0 -2674135 true "" ""
 
 BUTTON
 748
@@ -347,6 +335,7 @@ NIL
 NIL
 NIL
 NIL
+1
 
 BUTTON
 748
@@ -363,6 +352,7 @@ NIL
 NIL
 NIL
 NIL
+1
 
 SWITCH
 748
@@ -387,17 +377,17 @@ XXIV_Activated?
 -1000
 
 OUTPUT
-759
-452
-1086
-502
+751
+720
+1078
+776
 32
 
 SWITCH
-1095
-27
-1235
-60
+748
+207
+888
+240
 Deathmatch?
 Deathmatch?
 1
@@ -405,10 +395,10 @@ Deathmatch?
 -1000
 
 SLIDER
-1088
-571
-1121
-781
+1044
+17
+1077
+227
 Units_per_Unit_Represented
 Units_per_Unit_Represented
 1
@@ -420,10 +410,10 @@ Units
 VERTICAL
 
 MONITOR
-857
-406
-953
-451
+752
+390
+848
+435
 German Losses
 (initGermans - sum [amount] of turtles with [soviet? = false] ) 
 0
@@ -431,52 +421,21 @@ German Losses
 11
 
 MONITOR
-759
-406
-855
-451
+983
+390
+1079
+435
 Russian Losses
 ( initRussians - sum [amount] of turtles with [soviet?] ) 
 0
 1
 11
 
-SWITCH
-1120
-65
-1236
-98
-deathstar?
-deathstar?
-1
-1
--1000
-
-TEXTBOX
-1086
-83
-1236
-125
-DEBUG\n-------------------------------------
-11
-0.0
-1
-
-TEXTBOX
-1077
-13
-1092
-111
-|\n|\n|\n|\n|\n|\n+
-11
-0.0
-1
-
 MONITOR
-760
-358
-852
-403
+984
+342
+1079
+387
 Russian Tanks
 sum [amount] of tanks with[soviet?]
 17
@@ -484,10 +443,10 @@ sum [amount] of tanks with[soviet?]
 11
 
 MONITOR
-760
-311
-845
-356
+984
+295
+1079
+340
 Russian Foot
 sum [amount] of infantries with [soviet?]
 17
@@ -495,10 +454,10 @@ sum [amount] of infantries with [soviet?]
 11
 
 MONITOR
-857
-359
-949
-404
+752
+343
+848
+388
 German Tanks
 \nsum [amount] of tanks with[soviet? = false]
 17
@@ -506,10 +465,10 @@ German Tanks
 11
 
 MONITOR
-858
-312
-943
-357
+752
+296
+848
+341
 German Foot
 sum [amount] of infantries with [soviet? = false]
 17
@@ -517,48 +476,40 @@ sum [amount] of infantries with [soviet? = false]
 11
 
 @#$#@#$#@
-WHAT IS IT?
------------
+## WHAT IS IT?
+
 This section could give a general understanding of what the model is trying to show or explain.
 
+## HOW IT WORKS
 
-HOW IT WORKS
-------------
 This section could explain what rules the agents use to create the overall behavior of the model.
 
+## HOW TO USE IT
 
-HOW TO USE IT
--------------
 This section could explain how to use the model, including a description of each of the items in the interface tab.
 
+## THINGS TO NOTICE
 
-THINGS TO NOTICE
-----------------
 This section could give some ideas of things for the user to notice while running the model.
 
+## THINGS TO TRY
 
-THINGS TO TRY
--------------
 This section could give some ideas of things for the user to try to do (move sliders, switches, etc.) with the model.
 
+## EXTENDING THE MODEL
 
-EXTENDING THE MODEL
--------------------
 This section could give some ideas of things to add or change in the procedures tab to make the model more complicated, detailed, accurate, etc.
 
+## NETLOGO FEATURES
 
-NETLOGO FEATURES
-----------------
 This section could point out any especially interesting or unusual features of NetLogo that the model makes use of, particularly in the Procedures tab.  It might also point out places where workarounds were needed because of missing features.
 
+## RELATED MODELS
 
-RELATED MODELS
---------------
 This section could give the names of models in the NetLogo Models Library or elsewhere which are of related interest.
 
+## CREDITS AND REFERENCES
 
-CREDITS AND REFERENCES
-----------------------
 This section could contain a reference to the model's URL on the web if it has one, as well as any other necessary credits or references.
 @#$#@#$#@
 default
@@ -923,7 +874,7 @@ Polygon -7500403 true true 270 75 225 30 30 225 75 270
 Polygon -7500403 true true 30 75 75 30 270 225 225 270
 
 @#$#@#$#@
-NetLogo 4.1.2
+NetLogo 5.0.4
 @#$#@#$#@
 @#$#@#$#@
 @#$#@#$#@
