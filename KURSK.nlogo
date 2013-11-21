@@ -277,11 +277,11 @@ end
 GRAPHICS-WINDOW
 2
 10
-747
-776
+476
+505
 -1
 -1
-15.64
+9.87234043
 1
 10
 1
@@ -302,10 +302,10 @@ ticks
 30.0
 
 PLOT
-752
-437
-1079
-716
+478
+220
+805
+447
 Forces
 Time
 Forces
@@ -321,10 +321,10 @@ PENS
 "Soviet" 1.0 0 -2674135 true "" ""
 
 BUTTON
-748
+478
 10
-850
-72
+609
+62
 Setup
 setup
 NIL
@@ -338,10 +338,10 @@ NIL
 1
 
 BUTTON
-748
-73
-850
-135
+478
+64
+609
+114
 Run
 go
 T
@@ -355,39 +355,39 @@ NIL
 1
 
 SWITCH
-748
-137
-888
-170
+478
+116
+609
+149
 German_Retreat?
 German_Retreat?
+1
+1
+-1000
+
+SWITCH
+478
+151
+609
+184
+XXIV_Activated?
+XXIV_Activated?
 0
 1
 -1000
 
-SWITCH
-748
-172
-888
-205
-XXIV_Activated?
-XXIV_Activated?
-1
-1
--1000
-
 OUTPUT
-751
-720
-1078
-776
+478
+450
+805
+506
 32
 
 SWITCH
-748
-207
-888
-240
+478
+185
+609
+218
 Deathmatch?
 Deathmatch?
 1
@@ -395,25 +395,25 @@ Deathmatch?
 -1000
 
 SLIDER
-1044
-17
-1077
-227
+611
+10
+806
+43
 Units_per_Unit_Represented
 Units_per_Unit_Represented
 1
 24
-12
+24
 1
 1
 Units
-VERTICAL
+HORIZONTAL
 
 MONITOR
-752
-390
-848
-435
+611
+173
+707
+218
 German Losses
 (initGermans - sum [amount] of turtles with [soviet? = false] ) 
 0
@@ -421,10 +421,10 @@ German Losses
 11
 
 MONITOR
-983
-390
-1079
-435
+709
+173
+805
+218
 Russian Losses
 ( initRussians - sum [amount] of turtles with [soviet?] ) 
 0
@@ -432,10 +432,10 @@ Russian Losses
 11
 
 MONITOR
-984
-342
-1079
-387
+710
+125
+805
+170
 Russian Tanks
 sum [amount] of tanks with[soviet?]
 17
@@ -443,10 +443,10 @@ sum [amount] of tanks with[soviet?]
 11
 
 MONITOR
-984
-295
-1079
-340
+710
+78
+805
+123
 Russian Foot
 sum [amount] of infantries with [soviet?]
 17
@@ -454,10 +454,10 @@ sum [amount] of infantries with [soviet?]
 11
 
 MONITOR
-752
-343
-848
-388
+611
+126
+707
+171
 German Tanks
 \nsum [amount] of tanks with[soviet? = false]
 17
@@ -465,10 +465,10 @@ German Tanks
 11
 
 MONITOR
-752
-296
-848
-341
+611
+79
+707
+124
 German Foot
 sum [amount] of infantries with [soviet? = false]
 17
